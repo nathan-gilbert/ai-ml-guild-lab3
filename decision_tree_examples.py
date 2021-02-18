@@ -16,7 +16,6 @@ if __name__ == "__main__":
     # print(dataset.describe())
 
     X = dataset.drop(['name', 'type', 'rating'], axis=1)
-
     mfr_encoder = LabelBinarizer()
     mfr_encoder.fit(X['mfr'])
     transformed = mfr_encoder.transform(X['mfr'])
