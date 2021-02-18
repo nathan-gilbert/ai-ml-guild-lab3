@@ -49,8 +49,9 @@ if __name__ == "__main__":
     text_representation = tree.export_text(dt, feature_names=feature_names)
     print(text_representation)
 
-    fig = plt.figure(figsize=(25, 20))
-    _ = tree.plot_tree(clf,
-                       feature_names=iris.feature_names,
-                       class_names=iris.target_names,
+    fig = plt.figure(figsize=(100, 100))
+    fig.set_dpi(100.0)
+    _ = tree.plot_tree(dt,
+                       feature_names=feature_names,
                        filled=True)
+    fig.savefig("decision_tree.png")
