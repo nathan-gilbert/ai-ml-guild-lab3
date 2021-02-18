@@ -1,9 +1,9 @@
-import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.preprocessing import LabelBinarizer
 from sklearn import tree
+from matplotlib import pyplot as plt
 
 
 if __name__ == "__main__":
@@ -48,3 +48,9 @@ if __name__ == "__main__":
     feature_names = list(X.columns.values)[:-7] + mfr_names
     text_representation = tree.export_text(dt, feature_names=feature_names)
     print(text_representation)
+
+    fig = plt.figure(figsize=(25, 20))
+    _ = tree.plot_tree(clf,
+                       feature_names=iris.feature_names,
+                       class_names=iris.target_names,
+                       filled=True)
